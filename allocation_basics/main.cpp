@@ -37,7 +37,7 @@ int main(int argc,char *argv[])
     }
     delete tab3D;
 
-    for(int i = 0; i < argc ; ++i) {        //Przekazanie argumentu przykład
+    for(int i = 0; i < argc ; ++i) {        //Przekazanie argumentu przykład test
         cout << argv[i] <<endl;
     }
 
