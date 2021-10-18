@@ -12,14 +12,14 @@ int main(int argc, char *argv[])
                 add(atoi(argv[2]), atoi(argv[3])); // Funkacja dodwania
             } else {
                 cout << "Blad! Wprowadzono za malo wartosci" << endl;
-                help();
+                help(1);
             }
         } else if (program == 2) {
             if (argc >= 3) {                                        //Sprawdzenie czy nie ma za moło argumentow dla teog dzialania
                 subtract(atoi(argv[2]), atoi(argv[3]));     //Funkcja odejmowania
             } else {
                 cout << "Blad! Wprowadzono za malo wartosci" << endl;
-                help();
+                help(2);
             }
         } else if (program == 3) {
             if (argc >= 6) {                                                        //Sprawdzenie czy nie ma za moło argumentow dla teog dzialania
@@ -28,23 +28,23 @@ int main(int argc, char *argv[])
                 else
                 {
                     cout<<"Wartosci musza byc dodatnie!"<<endl;
-                    help();                                         // Wyswietlanie dokumentacji
+                    help(3);                                         // Wyswietlanie dokumentacji
                 }
             } else {
                 cout << "Blad! Wprowadzono za malo wartosci" << endl;
-                help();
+                help(3);
             }
         } else if (program == 4) {
-            help();
+            help(4);
         } else {
             cout << "Blad! Wprowadzono za malo wartosci" << endl;
-            help();
+            help(4);
         }
     }
     else
     {
         cout <<"Blad nie masz podanych zadnych argumentow!"<<endl;
-        help();
+        help(4);
     }
     return 0;
 }
