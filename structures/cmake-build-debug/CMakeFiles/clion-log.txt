@@ -1,1 +1,0 @@
-CMakeLists.txt not found in D:\Studia\JIPP2\Lab\structures Select CMakeLists.txt
