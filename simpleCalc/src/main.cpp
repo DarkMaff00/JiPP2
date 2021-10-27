@@ -1,5 +1,6 @@
 #include <iostream>
 #include <calc.h>
+// Zadanie oddałem w terminie lecz pozniej przez przypdake usunalem z githuba i mialem duzy problem zeby je przywrocic
 
 using namespace std;
 
