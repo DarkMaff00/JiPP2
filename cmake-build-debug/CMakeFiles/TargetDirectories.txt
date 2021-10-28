@@ -1,5 +1,0 @@
-D:/Studia/JIPP2/Lab/cmake-build-debug/CMakeFiles/edit_cache.dir
-D:/Studia/JIPP2/Lab/cmake-build-debug/CMakeFiles/rebuild_cache.dir
-D:/Studia/JIPP2/Lab/cmake-build-debug/allocation_basics/CMakeFiles/allocation_basics.dir
-D:/Studia/JIPP2/Lab/cmake-build-debug/allocation_basics/CMakeFiles/edit_cache.dir
-D:/Studia/JIPP2/Lab/cmake-build-debug/allocation_basics/CMakeFiles/rebuild_cache.dir
