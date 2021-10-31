@@ -1,4 +1,8 @@
 cmake_minimum_required(VERSION 3.16)
+project(main)
+set(CMAKE_CXX_STANDARD 17)
 
 add_subdirectory(allocation_basics)
 add_subdirectory(simpleCalc)
+add_subdirectory(matrixLib)
+add_subdirectory(matrixApp)
