@@ -112,7 +112,7 @@ void User::show_user() {
 
 void User::save_in_database() {
     ofstream base;
-    base.open("../database.csv", ios::out | ios::app);
+    base.open("../database.txt", ios::out | ios::app);
     if (base.is_open()) {
         base << login << "," << userID << "," << password << "," << normalAcc << "," << 0 << "," << saving << "," << 0
              << "," << currency << "," << 0 << "," << "XXX" << "\n";
@@ -123,7 +123,7 @@ void User::save_in_database() {
 }
 
 int User::compare_with_data(string word) {
-    ifstream input("../database.csv");
+    ifstream input("../database.txt");
     int numerator = 0;
     if (input.is_open()) {
         string line;
@@ -170,7 +170,7 @@ int User::compare_with_data(string word) {
 }
 
 int User::checkID(int id) {
-    ifstream input("../database.csv");
+    ifstream input("../database.txt");
     int checkID;
     int numerator = 0;
     if (input.is_open()) {
@@ -202,8 +202,8 @@ int User::checkID(int id) {
 void User::clear_file() {
     fstream input, output;
 
-    input.open("../database.csv", ios::in);
-    output.open("../databaseNew.csv", ios::out);
+    input.open("../database.txt", ios::in);
+    output.open("../databaseNew.txt", ios::out);
 
     string line, word;
     int roll;
@@ -250,8 +250,8 @@ void User::clear_file() {
     }
     input.close();
     output.close();
-    remove("../database.csv");
-    rename("../databaseNew.csv", "../database.csv");
+    remove("../database.txt");
+    rename("../databaseNew.txt", "../database.txt");
 }
 
 void User::delete_user() {

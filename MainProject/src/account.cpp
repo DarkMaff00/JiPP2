@@ -43,8 +43,8 @@ void Account::create() {
 void Account::update_base(int index, int data) {
     fstream input, output;
 
-    input.open("../database.csv", ios::in);
-    output.open("../databaseNew.csv", ios::out);
+    input.open("../database.txt", ios::in);
+    output.open("../databaseNew.txt", ios::out);
 
     string line, word;
     int roll;
@@ -102,15 +102,15 @@ void Account::update_base(int index, int data) {
     }
     input.close();
     output.close();
-    remove("../database.csv");
-    rename("../databaseNew.csv", "../database.csv");
+    remove("../database.txt");
+    rename("../databaseNew.txt", "../database.txt");
 }
 
 void Account::update_base(int index, double data) {
     fstream input, output;
 
-    input.open("../database.csv", ios::in);
-    output.open("../databaseNew.csv", ios::out);
+    input.open("../database.txt", ios::in);
+    output.open("../databaseNew.txt", ios::out);
 
     string line, word;
     int roll;
@@ -168,15 +168,15 @@ void Account::update_base(int index, double data) {
     }
     input.close();
     output.close();
-    remove("../database.csv");
-    rename("../databaseNew.csv", "../database.csv");
+    remove("../database.txt");
+    rename("../databaseNew.txt", "../database.txt");
 }
 
 void Account::update_base(int index, string data) {
     fstream input, output;
 
-    input.open("../database.csv", ios::in);
-    output.open("../databaseNew.csv", ios::out);
+    input.open("../database.txt", ios::in);
+    output.open("../databaseNew.txt", ios::out);
 
     string line, word;
     int roll;
@@ -232,8 +232,8 @@ void Account::update_base(int index, string data) {
     }
     input.close();
     output.close();
-    remove("../database.csv");
-    rename("../databaseNew.csv", "../database.csv");
+    remove("../database.txt");
+    rename("../databaseNew.txt", "../database.txt");
 }
 
 void Account::setter(int change, double data) {
