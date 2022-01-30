@@ -4,18 +4,28 @@
 using namespace std;
 
 template<typename T>
-void Menu::noLetter(T msg) {
+void Menu::check_for_error(T money) {
     try {
         if (cin.fail()) {
             throw 0;
         }
+        if (money < 0) {
+            throw 0;
+        }
+        if(money > numeric_limits<T> ::max()){
+            throw invalid_argument("Argument jest zbyt duży");
+        }
     }
-    catch (int e) {
+    catch (int data){
         cin.clear();
         cin.ignore(256, '\n');
-        msg = e;
+        money = data;
+    }
+    catch (invalid_argument &e) {
+        cout << e.what() << endl;
     }
 }
+
 
 Menu::Menu()
         : argument("help") {}
@@ -43,7 +53,7 @@ void Menu::logged(Account *acc1, Savings *acc2, Currency *acc3, User *logged) {
     do {
         cout << "Opcja:";
         cin >> option;
-        noLetter(option);
+        check_for_error(option);
         switch (option) {
             case 0:
                 text();
@@ -109,7 +119,7 @@ void Menu::deposit(Account *acc1, Savings *acc2, Currency *acc3) {
     cout << "02.Konto oszczednosciowe." << endl;
     cout << "03.Konto walutowe." << endl;
     cin >> pom;
-    noLetter(pom);
+    check_for_error(pom);
     if (pom != 1 && pom != 2 && pom != 3) {
         cout << "Trzeba bylo wybrac opcje 1-3" << endl;
     } else {
@@ -146,7 +156,7 @@ void Menu::withdraw(Account *acc1, Currency *acc3) {
     cout << "02.Konto oszczednosciowe." << endl;
     cout << "03.Konto walutowe." << endl;
     cin >> pom;
-    noLetter(pom);
+    check_for_error(pom);
     if (pom != 1 && pom != 2 && pom != 3) {
         cout << "Trzeba bylo wybrac opcje 1-3" << endl;
     } else {
@@ -227,7 +237,7 @@ void Menu::closeBill(Account *acc1, Savings *acc2, Currency *acc3) {
     cout << "02.Konto oszczednosciowe." << endl;
     cout << "03.Konto walutowe." << endl;
     cin >> pom;
-    noLetter(pom);
+    check_for_error(pom);
     if (pom != 1 && pom != 2 && pom != 3) {
         cout << "Trzeba bylo wybrac opcje 1-3" << endl;
     } else {

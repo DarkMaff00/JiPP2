@@ -301,22 +301,4 @@ void Account::subMoney(int index) {
     cout << "Twoj bilans wynosi: " << getBalance() << " PLN" << endl;
 }
 
-template<typename T>
-void Account::check_for_error(T money) {
-    try {
-        if (cin.fail()) {
-            throw "Wprowadziles bledne dane";
-        }
-        if (money < 0) {
-            throw "Musisz podac dodatnia liczbe pieniedzy";
-        }
-    }
-    catch (const char *msg) {
-        cout << msg << endl;
-        exit(-1);
-    }
-    catch (overflow_error &e) {
-        cout << e.what() << endl;
-    }
-}
 

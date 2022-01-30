@@ -5,20 +5,6 @@
 using namespace std;
 string scTab[] = {"EUR", "USD", "GBP", "CHF"};
 
-template<typename T>
-void noLetter(T msg) {
-    try {
-        if (cin.fail()) {
-            throw 0;
-        }
-    }
-    catch (int e) {
-        cin.clear();
-        cin.ignore(256, '\n');
-        msg = e;
-    }
-}
-
 Currency::Currency(User logged) : Account(logged) {
     this->status = logged.currency;
     this->balance = logged.balance[2];
@@ -42,7 +28,7 @@ void Currency::create() {
             cout << "04.CHF" << endl;
             do {
                 cin >> pom;
-                noLetter(pom);
+                check_for_error<int>(pom);
                 switch (pom) {
                     case 1:
                         this->sc = scTab[0];
@@ -134,7 +120,7 @@ void Currency::cantor(Account *acc1, Savings *acc2) {
             cout << "01.Standardowe" << endl;
             cout << "02.Oszczednosciowe" << endl;
             cin >> pom;
-            noLetter(pom);
+            check_for_error<int>(pom);
             if (pom != 1 && pom != 2) {
                 cout << "Trzeba bylo wybrac opcje 1 lub 2" << endl;
             } else {

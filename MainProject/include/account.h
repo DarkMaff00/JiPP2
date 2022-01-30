@@ -76,7 +76,27 @@ public:
     /// \tparam T - type of data
     /// \param money - data to check
     template<typename T>
-    void check_for_error(T money);
+    void check_for_error(T money){
+        try {
+            if (std::cin.fail()) {
+                throw 0;
+            }
+            if (money < 0) {
+                throw 0;
+            }
+            if(money > std::numeric_limits<T> ::max()){
+                throw std::invalid_argument("Argument jest zbyt duży");
+            }
+        }
+        catch (int data){
+            std::cin.clear();
+            std::cin.ignore(256, '\n');
+            money = data;
+        }
+        catch (std::invalid_argument &e) {
+            std::cout << e.what() << std::endl;
+        }
+    }
 
     /// adding money to different account
     /// \param rhs - amount of money

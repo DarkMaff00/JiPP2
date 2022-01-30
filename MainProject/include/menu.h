@@ -30,10 +30,11 @@ public:
     /// \param logged - user
     void logged(Account *acc1, Savings *acc2, Currency *acc3, User *logged);
 
-    /// checking if msg has letter
-    /// \tparam msg - value to check
+    /// checking for errors in given amount of money
+    /// \tparam T - type of data
+    /// \param money - data to check
     template<typename T>
-    void noLetter(T msg);
+    void check_for_error(T money);
 
     /// showing menu
     void text() const;

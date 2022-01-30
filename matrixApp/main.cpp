@@ -744,9 +744,6 @@ bool letterSecure(double x) {
     }
     return true;
 }
-///
-/// \param x - liczba wprowadzona
-/// \return - zwraca prawde jesli x jest liczba
 bool letterSecure(int x) {
     while (cin.fail()) {
         cout << "Podaj liczbe:" << endl;
