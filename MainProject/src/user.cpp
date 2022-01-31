@@ -51,20 +51,27 @@ void User::create_user() {
                 "maksymalnie dwudziestu." << endl;
         cout << "3. Nie stosujemy przecinkow w nazwie ani hasle." << endl;
     }
-    cout << "Podaj nazwe uzytkownika (login): ";
-    try {
-        cin >> login;
-        if (login.size() > 8 || login.size() < 4) {
-            throw "Nazwa uzytkownika musi zawierac pomiedzy 4, a 8 znakow";
+    do {
+        if (i != 0) {
+            cout << "Ta nazwa uzytkownika jest juz zajeta" << endl;
         }
-        if (login.find(',') != string::npos) {
-            throw "Nie uzywaj przecinka w nazwie uzytkownika";
+        cout << "Podaj nazwe uzytkownika (login): ";
+        try {
+            cin >> login;
+            if (login.size() > 8 || login.size() < 4) {
+                throw "Nazwa uzytkownika musi zawierac pomiedzy 4, a 8 znakow";
+            }
+            if (login.find(',') != string::npos) {
+                throw "Nie uzywaj przecinka w nazwie uzytkownika";
+            }
         }
-    }
-    catch (const char *msg) {
-        cout << msg << endl;
-        exit(-1);
-    }
+        catch (const char *msg) {
+            cout << msg << endl;
+            exit(-1);
+        }
+        i++;
+    } while (checkLogin(login) == 1);
+    i = 0;
 
     do {
         if (i != 0) {
@@ -150,6 +157,34 @@ int User::compare_with_data(string word) {
                 balance[2] = stod(line);
                 getline(input, line, '\n');
                 currSC = line;
+                break;
+            }
+            getline(input, line, ',');
+            getline(input, line, ',');
+            getline(input, line, ',');
+            getline(input, line, ',');
+            getline(input, line, ',');
+            getline(input, line, ',');
+            getline(input, line, ',');
+            getline(input, line, '\n');
+        }
+        input.close();
+    } else {
+        cout << "Error on opening file" << endl;
+        exit(1);
+    }
+    return numerator;
+}
+
+int User::checkLogin(string word) {
+    ifstream input("../database.txt");
+    int numerator = 0;
+    if (input.is_open()) {
+        string line;
+        while (!input.eof()) {
+            getline(input, line, ',');
+            if (line == word) {
+                numerator = 1;
                 break;
             }
             getline(input, line, ',');

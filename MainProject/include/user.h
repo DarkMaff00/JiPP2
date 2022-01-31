@@ -53,6 +53,11 @@ public:
     /// \return 0 if not exist; 1 if exist
     int checkID(int id);
 
+    /// checking if user with this name is in the database
+    /// \param word - name of user
+    /// \return 0 if not exist; 1 if exist
+    int checkLogin(std::string word);
+
     /// default destructor
     ~User() noexcept = default;
 };
